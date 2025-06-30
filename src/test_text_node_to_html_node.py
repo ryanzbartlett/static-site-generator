@@ -1,9 +1,10 @@
 import unittest
 from leafnode import LeafNode
 from textnode import TextNode, TextType
-from utils import text_node_to_html_node
+from text_node_to_html_node import text_node_to_html_node
 
-class TestUtils(unittest.TestCase):
+
+class TestTextNodeToHtmlNode(unittest.TestCase):
     def test_text(self):
         node = TextNode("This is a text node", TextType.TEXT)
         html_node = text_node_to_html_node(node)
@@ -73,3 +74,7 @@ class TestUtils(unittest.TestCase):
         tn2 = TextNode("oops", "SOMETHING_ELSE")
         with self.assertRaises(ValueError):
             text_node_to_html_node(tn2)
+
+
+if __name__ == "__main__":
+    unittest.main()
